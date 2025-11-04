@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Show da Cinética Química</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<audio id="som-acerto" src="sons/acerto.mp3"></audio>
+<audio id="som-erro" src="sons/erro.mp3"></audio>
+<audio id="som-vitoria" src="sons/vitoria.mp3"></audio>
+<audio id="som-explosao" src="sons/explosao.mp3"></audio>
+<audio id="musica-relax" src="sons/calm-background.mp3" loop></audio>
+
+<body>
+  
+  <div class="container">
+    <button id="btn-voltar-inicio" onclick="voltarParaInicio()">← Início</button>
+    <h1>Show da Cinética Química</h1>
+    <p id="texto-progresso">0 / 15</p>
+    <div id="progresso">
+      <div id="barra-progresso"></div>
+    </div>
+    <div id="avatar-container">
+      <img src="frasquinho.webp" alt="Avatar" id="avatar-imagem">
+      <div id="avatar-fala">Bem-vindo(a), químico(a)! Vamos jogar?</div>
+    </div>
+    <div id="explosao" class="hidden">💥</div>
+    <div id="timer-container">
+      <div id="barra-tempo"></div>
+      <span id="contador-tempo">20s</span>
+      
+    </div>
+    <div id="pergunta-container">
+      <p id="pergunta"></p>
+      <div id="alternativas"></div>
+    </div>
+    <button id="btn-relax" onclick="alternarModoRelax()">🌙 Ativar modo relax</button>
+    <div id="ajudas">
+      <button id="ajuda-bomba" onclick="usarAjudaBomba()" disabled>💣 Bomba de potássio</button>
+      <button id="ajuda-eliminacao" onclick="usarAjudaEliminacao()" disabled>❌ Eliminar 2</button>
+    </div>
+    <p id="pontuacao">R$ 0,00</p>
+    <p id="mensagem"></p>
+    <button id="reiniciar" onclick="reiniciarJogo()" style="display: none;">🔁 Reiniciar Jogo</button>
+  </div>
+  <p id="mensagem"></p>
+<button id="reiniciar" onclick="reiniciarJogo()" style="display: none;">🔁 Reiniciar Jogo</button>
+
+</div>
+
+<!-- Tela de vitória -->
+<div class="vitoria" id="tela-vitoria" style="display: none;">
+  <h2>🏆 Parabéns!</h2>
+  <p class="mensagem-final">Você é um milionário da Cinética! 💰</p>
+  <div class="emblema">🧪💎</div>
+  <button onclick="reiniciarJogo()">🔁 Jogar Novamente</button>
+</div>
+<script>
+    window.onload = function() {
+      // Pega o avatar escolhido no localStorage
+      const avatarSelecionado = localStorage.getItem("avatarSelecionado");
+
+      if (avatarSelecionado) {
+        document.getElementById("avatar-imagem").src = avatarSelecionado;
+      } else {
+        // Caso não tenha avatar salvo, volta para a tela inicial
+        window.location.href = "avatar.html";
+      }
+
+      // Aqui você pode chamar a função que inicia o jogo
+      carregarPergunta();
+    };
+
+    function carregarPergunta() {
+      console.log("O jogo começou!");
+      // Implementar lógica de carregamento de perguntas aqui
+    }
+  </script>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

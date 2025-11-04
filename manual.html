@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manual do Jogo – Show da Cinética</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #dda0dd;
+      background-image: 
+        url('https://www.transparenttextures.com/patterns/cubes.png'),
+        url('https://img.icons8.com/external-flat-icons-inmotus-design/100/ffffff/external-Chemical-laboratory-flat-icons-inmotus-design.png');
+      background-repeat: repeat, no-repeat;
+      background-position: top left, center;
+      background-size: auto, 300px;
+      background-blend-mode: multiply, overlay;
+      background-attachment: fixed;
+
+      color: #dda0dd;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 0 30px rgba(128, 0, 128, 0.4);
+      text-align: left;
+      position: relative;
+      animation: fadeIn 1.2s ease-out;
+      z-index: 2;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #800080;
+      text-align: center;
+    }
+
+    h2 {
+      color: #4b004b;
+      margin-top: 25px;
+      font-size: 1.4rem;
+    }
+
+    p, li {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    a.back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 35px;
+      font-size: 1.1rem;
+      color: #dda0dd;
+      background-color: #8a2be2;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 6px 18px rgba(128, 0, 128, 0.4);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    a.back-button:hover {
+      background-color: #800080;
+      color: #ffd700;
+      box-shadow: 0 10px 30px rgba(128, 0, 128, 0.5);
+    }
+
+    .decor {
+      position: absolute;
+      width: 40px;
+      opacity: 0.5;
+      filter: brightness(1.2);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .icon1 { top: -20px; left: -20px; transform: rotate(-15deg); }
+    .icon2 { top: 10px; right: -30px; transform: rotate(10deg); }
+    .icon3 { bottom: -25px; left: 20px; transform: rotate(20deg); }
+    .icon4 { bottom: -20px; right: 10px; transform: rotate(-10deg); }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Ícones decorativos -->
+    <img src="https://img.icons8.com/color/48/test-tube.png" class="decor icon1" alt="Teste Tubo" />
+    <img src="https://img.icons8.com/color/48/benzene-ring.png" class="decor icon2" alt="Anel Benzeno" />
+    <img src="https://img.icons8.com/color/48/microscope.png" class="decor icon3" alt="Microscópio" />
+    <img src="https://img.icons8.com/color/48/chemical-plant.png" class="decor icon4" alt="Planta Química" />
+
+    <h1>Manual do Jogo – Show da Cinética</h1>
+
+    <h2>1. Título do Projeto</h2>
+    <p><strong>Show da Cinética Química</strong> (título provisório). O nome final ainda está em definição.</p>
+
+    <h2>2. Objetivo do Jogo</h2>
+    <p>Promover o aprendizado da <strong>cinética química</strong> de forma lúdica e interativa. Inspirado no formato do "Show do Milhão", o jogo desafia os conhecimentos do jogador com perguntas de múltipla escolha e mecânicas de ajuda e recompensa.</p>
+
+    <h2>3. Público-Alvo</h2>
+    <p>Estudantes do Ensino Médio ou cursos introdutórios de Química. Pode ser usado em sala de aula ou de forma autônoma.</p>
+
+    <h2>4. Mecânica do Jogo</h2>
+    <ul>
+      <li>Responda perguntas de múltipla escolha sobre cinética química.</li>
+      <li>Cada resposta correta acumula um valor fictício de “dinheiro”.</li>
+      <li>A cada 3 acertos, o jogador pode escolher uma <strong>ajuda</strong>.</li>
+      <li>Ao alcançar R$ 1.000.000, o jogador recebe um emblema de conquista.</li>
+      <li>O jogo termina ao errar uma pergunta ou concluir todas as etapas.</li>
+    </ul>
+
+    <h2>4.1. Ajuda ao Jogador</h2>
+    <ul>
+      <li><strong>Bomba de Potássio com Água:</strong> Garante resposta correta automaticamente.</li>
+      <li><strong>Eliminação de Alternativas:</strong> Remove duas opções incorretas.</li>
+      
+    </ul>
+
+    <h2>4.2. Sistema de Recompensas</h2>
+    <ul>
+      <li>Prêmios fictícios aumentam a cada acerto (R$ 1.000, R$ 5.000, R$ 10.000... até R$ 1.000.000).</li>
+      <li>Ao atingir R$ 1.000.000, o jogador desbloqueia um <strong>emblema especial</strong>.</li>
+    </ul>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="back-button">← Voltar para Início</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escolha seu Avatar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="tela-avatar" class="tela-avatar">
+    <button id="btn-voltar-inicio" onclick="voltarParaInicio()">← Início</button>
+    <h1>Escolha seu Avatar</h1>
+    <p>Selecione o cientista que te representará no jogo!</p>
+    
+    <div class="avatar-opcoes">
+      <img src="avatar1.webp" alt="Avatar 1" onclick="selecionarAvatar('avatar1.webp')">
+      <img src="avatar2.webp" alt="Avatar 2" onclick="selecionarAvatar('avatar2.webp')">
+      <img src="avatar3.jpg" alt="Avatar 3" onclick="selecionarAvatar('avatar3.jpg')">
+      <img src="avatar4.jpg" alt="Avatar 4" onclick="selecionarAvatar('avatar4.jpg')">
+    </div>
+
+    <button id="btn-confirmar-avatar" onclick="confirmarAvatar()" disabled>Confirmar Avatar</button>
+  </div>
+
+  <script>
+    let avatarSelecionado = null;
+
+    function selecionarAvatar(caminho) {
+      avatarSelecionado = caminho;
+
+      // Destaque no avatar selecionado
+      const avatares = document.querySelectorAll(".avatar-opcoes img");
+      avatares.forEach(img => img.classList.remove("selecionado"));
+
+      const escolhido = Array.from(avatares).find(img => img.src.includes(caminho));
+      if (escolhido) {
+        escolhido.classList.add("selecionado");
+      }
+
+      document.getElementById("btn-confirmar-avatar").disabled = false;
+    }
+
+    function confirmarAvatar() {
+  if (!avatarSelecionado) return;
+  
+  // Salva o avatar no localStorage
+  localStorage.setItem("avatarSelecionado", avatarSelecionado);
+
+  // Redireciona para a tela de transição ("Prepare-se")
+  window.location.href = "facil.html";
+}
+
+function voltarParaInicio() {
+  window.location.href = "index.html";
+}
+  </script>
+</body>
+</html>
+
